@@ -13,7 +13,7 @@ pub struct DiskManager {
 // io::Result ファイルが見つからないorディスクがいっぱい等のI/O関連のエラーが起こりうる
 // <self> 成功した場合の値
 impl DiskManager {
-  // constracter
+  // constructer
   pub fn new(date_file: File) -> io::Result<Self> {
     // ファイルサイズ取得
     let heap_file_size = heap_file.metadata()?.len();

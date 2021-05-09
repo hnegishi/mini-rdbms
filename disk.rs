@@ -6,6 +6,10 @@ pub struct DiskManager {
   next_page_id: u64,
 }
 
+// impl メソッド実装のブロック
+// io::Result<self>
+// io::Result ファイルが見つからないorディスクがいっぱい等のI/O関連のエラーが起こりうる
+// <self> 成功した場合の値
 impl DiskManager {
   // constracter
   pub fn new(date_file: File) -> io::Result<Self> {

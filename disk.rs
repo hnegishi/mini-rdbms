@@ -17,9 +17,15 @@ impl DiskManager {
   }
 }
 
-// open file path
+// open heap file
+//pathを指定して開く
 pub fn open(data_file_path: impl AsRef<Path>) -> io::Result<Self> {
-
+  let heap_file = OpenOptions::new()
+    .read(true)
+    .write(true)
+    .create(true)
+    .open(heap_file_path)?; // ?はエラーが返った時の早期return。
+  Self::new(heap_file) // DiskManager::open -self-> DiskManager::new
 }
 
 // read page data

@@ -1,3 +1,5 @@
+// 構造体定義(new type pattern)
+pub struct PageId(pub u64);
 
 pub struct DiskManager {
   // ヒープファイルのディスクリプた
@@ -43,5 +45,12 @@ impl DiskManager {
   // write page data
   pub fn write_page_data(&mut self, page_id: PageId, data: &[u8]) -> io::Result<()> {
 
+  }
+
+// incrementして値を返してるだけ
+  pub fn allocate_page(&mut self) -> PageId {
+    let page_id = self.next_page_id;
+    self.next_page_id +=1;
+    PageId(page_id)
   }
 }

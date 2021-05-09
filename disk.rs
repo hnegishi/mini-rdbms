@@ -23,7 +23,8 @@ pub fn open(data_file_path: impl AsRef<Path>) -> io::Result<Self> {
 }
 
 // read page data
-pub fn read_page_data(&mut self, page_id: PageId, data: mut [u8]) -> io::Result<()> {
+// &self &mut self はレシーバ
+pub fn read_page_data(&mut self, page_id: PageId, data: &mut [u8]) -> io::Result<()> {
 
 }
 
